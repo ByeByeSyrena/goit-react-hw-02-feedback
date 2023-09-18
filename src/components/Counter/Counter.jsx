@@ -26,7 +26,7 @@ state = {
     addNeutralFeedback = () => {
         this.setState((prevState) => {
             return {
-                neutral: prevState.good + 1,
+                neutral: prevState.neutral + 1,
             }
         }
         );
@@ -35,7 +35,7 @@ state = {
     addBadFeedback = () => {
         this.setState((prevState) => {
             return {
-                bad: prevState.good + 1,
+                bad: prevState.bad + 1,
             }
         }
         );
