@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import css from './Counter.module.css';
-import FeedbackOptions from '../FeedbackOptions/FeedbackOptions';
-import Statistics from '../Statistics/Statistics';
-import Section from '../Section/Section';
-import Notification from '../Notification/Notification';
+import FeedbackOptions from '../FeedbackOptions';
+import Statistics from '../Statistics';
+import Section from '../Section';
+import Notification from '../Notification';
 
 
 export class Counter extends Component {
