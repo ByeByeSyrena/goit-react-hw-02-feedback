@@ -41,11 +41,20 @@ state = {
         );
     };
 
-    countTotalFeedback = () => {
-        console.log("click")
-    };
+countTotalFeedback = () => {
+  const { good, neutral, bad } = this.state;
+  return good + neutral + bad;
+};
 
-    countPositiveFeedbackPercentage = () => {};
+countPositiveFeedbackPercentage = () => {
+  const { good } = this.state;
+  const total = this.countTotalFeedback();
+  if (total === 0) {
+    return 0;
+  }
+  return Math.round((good / total) * 100);
+};
+
     
     render() {
         return (
@@ -74,10 +83,10 @@ state = {
                 <span className={css.amount}>{this.state.bad}</span>
 
                 <span className={css.condition}>Total:</span>
-                <span className={css.amount}>0</span>
+                <span className={css.amount}>{this.countTotalFeedback()}</span>
 
                 <span className={css.condition}>Positive feedback:</span>
-                <span className={css.amount}>%</span>
+                <span className={css.amount}>{this.countPositiveFeedbackPercentage()}%</span>
 
             </div>
         );
