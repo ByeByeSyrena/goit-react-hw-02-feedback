@@ -2,35 +2,3 @@
   display: block;
   padding: 20px;
 }
-
-.firstHeadline {
-  display: block;
-  margin-bottom: 20px;
-}
-
-.buttonsWrapper {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.secondHeadline {
-  display: block;
-  margin-bottom: 20px;
-}
-
-.spansElement {
-  display: block;
-  margin-bottom: 10px;
-}
-
-.spansWrapper {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-
-.condition {
-  display: inline-block;
-  margin-right: 10px;
-}

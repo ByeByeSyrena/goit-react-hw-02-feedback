@@ -1,0 +1,15 @@
+.spansElement {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.spansWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.condition {
+  display: inline-block;
+  margin-right: 10px;
+}
