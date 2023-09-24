@@ -1,10 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import css from './Counter.module.css';
 import FeedbackOptions from '../FeedbackOptions';
 import Statistics from '../Statistics';
 import Section from '../Section';
 import Notification from '../Notification';
-
 
 export class Counter extends Component {
   state = {
@@ -13,8 +12,8 @@ export class Counter extends Component {
     bad: 0,
   };
 
-  addFeedback = (type) => {
-    this.setState((prevState) => ({
+  addFeedback = type => {
+    this.setState(prevState => ({
       [type]: prevState[type] + 1,
     }));
   };
@@ -31,27 +30,33 @@ export class Counter extends Component {
   };
 
   render() {
-    const options = Object.keys(this.state);
+    const options = Object.keys(this.state).map(option => ({
+      name: option,
+      value: this.state[option],
+    }));
 
     return (
       <div className={css.counter}>
         <Section title="Please leave feedback">
-          <FeedbackOptions options={options} onLeaveFeedback={this.addFeedback} />
+          <FeedbackOptions
+            options={options}
+            onLeaveFeedback={this.addFeedback}
+          />
         </Section>
 
         <Section title="Statistics">
-        {this.countTotalFeedback() === 0 ? (
-          <Notification message="There is no feedback" />
-        ) : (
-          <Statistics
-            good={this.state.good}
-            neutral={this.state.neutral}
-            bad={this.state.bad}
-            total={this.countTotalFeedback()}
-            positivePercentage={this.countPositiveFeedbackPercentage()}
-          />
-        )}
-      </Section>
+          {this.countTotalFeedback() === 0 ? (
+            <Notification message="There is no feedback" />
+          ) : (
+            <Statistics
+              good={this.state.good}
+              neutral={this.state.neutral}
+              bad={this.state.bad}
+              total={this.countTotalFeedback()}
+              positivePercentage={this.countPositiveFeedbackPercentage()}
+            />
+          )}
+        </Section>
       </div>
     );
   }
